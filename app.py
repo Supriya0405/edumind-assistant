@@ -297,6 +297,13 @@ with st.sidebar:
     st.warning("🚨 **Crisis Hotline**: 988 (US)")
 
 # Load data and artifacts
+def load_dataset(path):
+    try:
+        return pd.read_excel(path)
+    except Exception as e:
+        st.error(f"Error loading dataset: {str(e)}")
+        return pd.DataFrame()
+
 DATA_PATH = "data/Education_Dataset.xlsx"
 df = load_dataset(DATA_PATH)
 model, scaler = load_artifacts()
@@ -379,12 +386,16 @@ if page == "📊 Predict CGPA":
                         new_data[col] = 0
                 new_data = new_data[training_cols]
 
-                # Scale and predict
-                X_scaled = scaler.transform(new_data)
-                pred = model.predict(X_scaled)[0]
+                # Scale and predict with loading spinner
+                with st.spinner("🔄 Analyzing your data..."):
+                    X_scaled = scaler.transform(new_data)
+                    pred = model.predict(X_scaled)[0]
                 
                 # Display result with enhanced styling
                 st.markdown(f'<div class="prediction-result">🎓 Predicted CGPA: {pred:.2f}</div>', unsafe_allow_html=True)
+                
+                # Add prediction explanation
+                st.info("💡 Your CGPA is influenced mainly by study hours, attendance, and lifestyle factors.")
                 
                 # Add recommendations based on CGPA
                 if pred >= 3.5:
