@@ -13,7 +13,7 @@ from src.predict import predict_cgpa
 
 # Custom CSS for better UI
 st.set_page_config(
-    page_title="Student Mental Health Dashboard", 
+    page_title="EduMind Assistant", 
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -257,8 +257,8 @@ def get_mental_health_response(user_input):
             ]
         return random.choice(responses)
 
-st.markdown('<h1 class="main-header">🎓 Student Wellness Hub</h1>', unsafe_allow_html=True)
-st.markdown('<p style="text-align: center; color: #7f8c8d; font-size: 1.1rem; margin-bottom: 2rem;">Your comprehensive platform for academic success and mental well-being</p>', unsafe_allow_html=True)
+st.markdown('<h1 class="main-header">EduMind Assistant</h1>', unsafe_allow_html=True)
+st.markdown('<p style="text-align: center; color: #7f8c8d; font-size: 1.1rem; margin-bottom: 2rem;">Your AI-powered academic companion for CGPA prediction and mental wellness support</p>', unsafe_allow_html=True)
 
 # Enhanced sidebar navigation
 with st.sidebar:
@@ -311,7 +311,7 @@ if page == "📊 Predict CGPA":
         # Add some context about the prediction
         col1, col2 = st.columns([2, 1])
         with col1:
-            st.markdown('<div class="resource-card">📚 **About This Tool**: This predictor uses machine learning to estimate your CGPA based on various factors including study habits, lifestyle, and demographic information.</div>', unsafe_allow_html=True)
+            st.markdown('<div class="resource-card">📚 **About EduMind**: This AI-powered predictor estimates your CGPA using machine learning based on your study habits, lifestyle, and academic factors.</div>', unsafe_allow_html=True)
         
         with col2:
             st.markdown('<div class="metric-card">🎯 **Accuracy**: ~85-90%</div>', unsafe_allow_html=True)
@@ -397,15 +397,15 @@ if page == "📊 Predict CGPA":
                     st.markdown('<div class="resource-card">💪 **Support Available**: Consider academic counseling, tutoring services, and time management workshops.</div>', unsafe_allow_html=True)
 
 elif page == "🧠 Mental Health Chatbot":
-    st.markdown('<h2 class="section-header">🧠 Mental Health Support Chatbot</h2>', unsafe_allow_html=True)
+    st.markdown('<h2 class="section-header">🧠 EduMind Wellness Chatbot</h2>', unsafe_allow_html=True)
     
     # Welcome message
-    st.markdown('<div class="resource-card">💬 **Welcome!** I\'m here to provide support and resources for your mental well-being. Remember, taking care of your mental health is just as important as your academic success.</div>', unsafe_allow_html=True)
+    st.markdown('<div class="resource-card">💬 **Welcome to EduMind!** I\'m your AI companion for mental well-being and academic success. Remember, taking care of your mental health is just as important as your grades.</div>', unsafe_allow_html=True)
     
     # Initialize chat history
     if "messages" not in st.session_state:
         st.session_state.messages = [
-            {"role": "assistant", "content": "Hello! I'm your mental health support assistant. How are you feeling today? Remember, I'm here to listen and provide support. 💙"}
+            {"role": "assistant", "content": "Hello! I'm your EduMind wellness assistant. How are you feeling today? Remember, I'm here to support both your academic success and mental well-being. 💙"}
         ]
     
     # Display chat messages
