@@ -6,3 +6,4 @@ pillow
 seaborn
 joblib
 scikit-learn
+openpyxl
