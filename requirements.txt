@@ -4,5 +4,6 @@ scikit-learn
 openpyxl
 seaborn
 matplotlib
-streamlit
+streamlit==1.28.0
 joblib
+altair==4.2.0
